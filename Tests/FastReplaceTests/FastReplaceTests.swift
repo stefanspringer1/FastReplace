@@ -1,7 +1,4 @@
-import SwiftSyntaxMacros
-import SwiftSyntaxMacrosTestSupport
 import XCTest
-import FastReplaceMacros
 import FastReplace
 
 final class FastReplaceTests: XCTestCase {
