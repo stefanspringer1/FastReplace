@@ -35,7 +35,7 @@ Note that when you need to use a regular expression, you already can switch to a
 
 ## Duplicate keys produced by a macro
 
-Be careful not to produce duplicate keys by using e.g. the `#codepoint` or `#codepointForEntity` macro: The following code compiles without a warning (at least with Swift version 6.0.0, cf. the [bug report](https://github.com/swiftlang/swift/issues/77318):
+Be careful not to produce duplicate keys by using e.g. the `#codepoint` or `#codepointForEntity` macro: The following code compiles without a warning (at least with Swift version 6.0.0, cf. the [bug report](https://github.com/swiftlang/swift/issues/77318)):
 
 ```swift
  text.replacing([
@@ -45,4 +45,4 @@ Be careful not to produce duplicate keys by using e.g. the `#codepoint` or `#cod
 ])
 ```
 
-But `#codepointForEntity("&half;")` and `#codepointForEntity("&frac12;")` are both expanded to `0xBD`, so we have defined a dictionary with duplicate keys. If you used this value directly as keys, this would produce the warning “Dictionary literal of type '[UInt32 : String]' has duplicate entries for integer literal key '0xBD'”. This lack of warning in the case of the macro usage is fatal, because during the run the program than crashes with a `Trace/BPT trap ...` error.
+But `#codepointForEntity("&half;")` and `#codepointForEntity("&frac12;")` are both expanded to `0xBD`, so we have defined a dictionary with duplicate keys. If you used this value directly as keys, this would produce the warning “Dictionary literal of type '[UInt32 : String]' has duplicate entries for integer literal key '0xBD'”. The lack of warning in the case of the macro usage is fatal, because during the run the program then crashes with a `Trace/BPT trap ...` error.
