@@ -27,7 +27,7 @@ print("a∑b".replacing(
 // prints "aX∫b"
 ```
 
-(There also is the [CodepointForEntityMacro](https://github.com/stefanspringer1/CodepointForEntityMacro)) which replaces the usual named character references by the code point.)
+There also is the [CodepointForEntityMacro](https://github.com/stefanspringer1/CodepointForEntityMacro)) which replaces the usual named character references by the code point.
 
 Very fast should be the replacements that use a dictionary:
 
