@@ -29,10 +29,10 @@ print("a∑b".replacing(
 
 There also is the [CodepointForEntityMacro](https://github.com/stefanspringer1/CodepointForEntityMacro)) which replaces the usual named character references by the code point.
 
-Very fast should be the replacements that use a dictionary:
+The replacements through a dictionary should be quite quick if such a dictionary is used often:
 
 ```swift
- text.replacing([
+let map = [
     #codepointForEntity("&frac12;"): " 1 / 2 ",
     #codepointForEntity("&frac13;"): " 1 / 3 ",
     #codepointForEntity("&frac14;"): " 1 / 4 ",
@@ -41,7 +41,10 @@ Very fast should be the replacements that use a dictionary:
     #codepointForEntity("&frac38;"): " 3 / 8 ",
     #codepointForEntity("&frac58;"): " 5 / 8 ",
     #codepointForEntity("&frac78;"): " 7 / 8 ",
-])
+]
+let newText1 = text1.replacing(map)
+let newText2 = text2.replacing(map)
+...
 ```
 
 You can find benchmarks with comparisons to the usual replacement operations in [CodepointMacroBenchmarks](https://github.com/stefanspringer1/CodepointMacroBenchmarks).
