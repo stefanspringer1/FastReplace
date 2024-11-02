@@ -1,6 +1,6 @@
 # FastReplace
 
-This package offers an efficient way to replace certain Unicode code points (either represented by `UnicodeScalar` or `UInt32`) with other values. It is more efficient than the replacement methods of the Swift standard library because there grapheme clusters are considered.
+This package offers an efficient way to replace certain Unicode code points (either represented by `UnicodeScalar` or `UInt32`) with other values. Those methods might be more efficient than the replacement methods of the Swift standard library where grapheme clusters are considered (cf. the [FastReplaceBenchmarks](https://github.com/stefanspringer1/FastReplaceBenchmarks)).
 
 Examples:
 
