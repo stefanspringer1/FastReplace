@@ -29,9 +29,28 @@ print("a∑b".replacing(
 
 (There also is the [CodepointForEntityMacro](https://github.com/stefanspringer1/CodepointForEntityMacro)) which replaces the usual named character references by the code point.)
 
+Very fast should be the replacements that use a dictionary:
+
+```swift
+ text.replacing([
+    #codepointForEntity("&frac12;"): " 1 / 2 ",
+    #codepointForEntity("&frac13;"): " 1 / 3 ",
+    #codepointForEntity("&frac14;"): " 1 / 4 ",
+    #codepointForEntity("&frac34;"): " 3 / 4 ",
+    #codepointForEntity("&frac18;"): " 1 / 8 ",
+    #codepointForEntity("&frac38;"): " 3 / 8 ",
+    #codepointForEntity("&frac58;"): " 5 / 8 ",
+    #codepointForEntity("&frac78;"): " 7 / 8 ",
+])
+```
+
 You can find benchmarks with comparisons to the usual replacement operations in [CodepointMacroBenchmarks](https://github.com/stefanspringer1/CodepointMacroBenchmarks).
 
-Note that when you need to use a regular expression, you already can switch to a scalar mode (example: `/[\x{0301}\x{0307}]/.matchingSemantics(.unicodeScalar)`.)
+Note that when you need to use a regular expression, you already can switch to a scalar mode, example:
+
+```swift
+/[\x{0301}\x{0307}]/.matchingSemantics(.unicodeScalar)
+```
 
 ## Duplicate keys produced by a macro
 
