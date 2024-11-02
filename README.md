@@ -52,6 +52,8 @@ Note that when you need to use a regular expression, you already can switch to a
 /[\x{0301}\x{0307}]/.matchingSemantics(.unicodeScalar)
 ```
 
+You might want to organise replacements with the [Replacements](https://github.com/stefanspringer1/Replacements) package.
+
 ## Duplicate keys produced by a macro
 
 Be careful not to produce duplicate keys by using e.g. the `#codepoint` or `#codepointForEntity` macro: The following code compiles without a warning (at least with Swift version 6.0.0, cf. the [bug report](https://github.com/swiftlang/swift/issues/77318)):
